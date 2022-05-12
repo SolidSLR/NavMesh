@@ -5291,6 +5291,50 @@ Transform:
   m_Father: {fileID: 1842796551}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &875741386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 875741388}
+  - component: {fileID: 875741387}
+  m_Layer: 0
+  m_Name: ClickManagement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &875741387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875741386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e554f480f766b0e4e9e6931af77b888b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goal: {fileID: 877371436}
+--- !u!4 &875741388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875741386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &877371436
 GameObject:
   m_ObjectHideFlags: 0
@@ -5300,6 +5344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 877371437}
+  - component: {fileID: 877371438}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Untagged
@@ -5334,6 +5379,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &877371438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877371436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc56854b23173844ab15bb344573b9f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &886422208
 GameObject:
   m_ObjectHideFlags: 0
@@ -8250,15 +8307,15 @@ GameObject:
   - component: {fileID: 1338560379}
   - component: {fileID: 1338560378}
   - component: {fileID: 1338560377}
-  - component: {fileID: 1338560376}
   - component: {fileID: 1338560375}
+  - component: {fileID: 1338560376}
   m_Layer: 0
   m_Name: NPCOgre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &1338560375
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -8267,9 +8324,9 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338560374}
   m_Enabled: 1
-  m_AgentTypeID: -1372625422
+  m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 4
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -8293,7 +8350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6718a259e58b2a46801266415fb389d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 877371437}
+  goal: {fileID: 1053416980}
 --- !u!136 &1338560377
 CapsuleCollider:
   m_ObjectHideFlags: 0

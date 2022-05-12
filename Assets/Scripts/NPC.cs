@@ -5,9 +5,12 @@ using UnityEngine.AI;
 
 public class NPC : MonoBehaviour { 
     public Transform goal;
-       
+    NavMeshAgent agent;
     void Start () {
-        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
+    }
+    
+    void Update(){
         agent.destination = goal.position; 
     }
 }
