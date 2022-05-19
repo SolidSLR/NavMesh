@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class SlowNPC : MonoBehaviour
 {
     public Transform preyNPC;
-    public Vector3 initTransf;
+    private Vector3 initTransf;
     NavMeshAgent agent;
     public float maxDistance = 7f;
 
@@ -20,29 +20,35 @@ public class SlowNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(CanChase()){
+       if(CanChase2()){
            agent.destination = preyNPC.position;
-       }else if(!CanChase()){
+       }else if(!CanChase2()){
            agent.destination = initTransf;
        }
     }
 
     public bool CanChase(){
         if(Physics.Raycast(transform.position, (preyNPC.position-transform.position).normalized, maxDistance)){
-            Debug.Log("Objetivo encontrado");
+            Debug.Log("CanChase(): Objetivo encontrado");
            return true;
        }else{
-           Debug.Log("No hay objetivo");
+           Debug.Log("CanChase(): No hay objetivo");
            return false;
        }
     }
 
     public bool CanChase2(){
-        if(Physics.Raycast(transform.position, (preyNPC.position-transform.position).normalized, maxDistance, -1, QueryTriggerInteraction.Ignore)){
-            Debug.Log("Objetivo encontrado");
-           return true;
-       }else{
-           Debug.Log("No hay objetivo");
+                
+        if(Physics.Raycast(transform.position, (preyNPC.position-transform.position).normalized, out RaycastHit hitInfo ,maxDistance, -1, QueryTriggerInteraction.Ignore)){
+            Debug.Log("Objecto encontrado: "+hitInfo.collider.gameObject.name);
+            Debug.Log("CanChase2(): Objetivo encontrado");
+           if(hitInfo.collider.gameObject.tag == "NPC"){
+               return true;
+           }else{
+               return false;
+           }
+        }else{
+           Debug.Log("CanChase2(): No hay objetivo");
            return false;
        }
     }
