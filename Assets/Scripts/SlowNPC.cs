@@ -26,6 +26,8 @@ public class SlowNPC : MonoBehaviour
        }else if(!CanChase3()){
            agent.destination = initTransf;
        }
+
+       Debug.DrawRay(transform.position, transform.forward*10f, Color.red, 1f);
     }
 
     public bool CanChase(){
@@ -57,23 +59,23 @@ public class SlowNPC : MonoBehaviour
 
     public bool CanChase3(){
 
+        Vector3 targetDir = preyNPC.position - transform.position;
+        float angle = Vector3.Angle(targetDir, transform.forward);
+        Debug.Log("Ángulo respecto a target "+angle);
         if(Physics.Raycast(transform.position+Vector3.up*0.1f, (preyNPC.position-transform.position).normalized,
         out RaycastHit hitInfo, maxDistance, -1, QueryTriggerInteraction.Ignore)){
-            
-            if(leftAngle.eulerAngles.magnitude <= hitInfo.collider.transform.eulerAngles.magnitude &&
-             hitInfo.collider.transform.eulerAngles.magnitude >= leftAngle.eulerAngles.magnitude){
 
+            if(angle<30f&&angle>-30f){
                 if(hitInfo.collider.gameObject.tag == "NPC"){
                     return true;
                 }else{
                     return false;
                 }
-            }else{ 
+            }else {
                 return false;
-                }
+            }
         }else{
-            Debug.Log("CanChase2(): No hay objetivo");
             return false;
-       }
+        }
     }
 }
