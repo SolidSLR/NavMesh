@@ -9,6 +9,7 @@ public class SlowNPC : MonoBehaviour
     private Vector3 initPos;
     NavMeshAgent agent;
     AgentState state;
+    AgentType type;
     public float maxDistance = 7f;
     public Quaternion leftAngle;
     public Quaternion rightAngle;
@@ -16,6 +17,7 @@ public class SlowNPC : MonoBehaviour
     void Start()
     {
         state = AgentState.Idle;
+        type = AgentType.None;
         initPos = transform.position;
         agent = GetComponent<NavMeshAgent>();
     }
@@ -116,9 +118,28 @@ public class SlowNPC : MonoBehaviour
             }
         }
     }
+    public void ChangeFull360(){
+        Debug.Log("Cambio a Full360");
+        type = AgentType.Full360;
+    }
+    public void ChangeBlock360(){
+        Debug.Log("Cambio a Block360");
+        type = AgentType.Block360;
+    }
+    public void ChangeRange(){
+        Debug.Log("Cambio a Range");
+        type = AgentType.Range;
+    }
+
     public enum AgentState{
         Idle,
         Chasing,
         Returning
+    }
+    public enum AgentType{
+        None,
+        Full360,
+        Block360, 
+        Range
     }
 }
