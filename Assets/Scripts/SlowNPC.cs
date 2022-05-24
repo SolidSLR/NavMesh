@@ -13,6 +13,7 @@ public class SlowNPC : MonoBehaviour
     public float maxDistance = 7f;
     public Quaternion leftAngle;
     public Quaternion rightAngle;
+    bool canChase = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,18 @@ public class SlowNPC : MonoBehaviour
        }else if(!CanChase3()){
            agent.destination = initTransf;
        }*/
-       bool canChase = CanChase3();
+       //bool canChase = CanChase3();
+       switch(type){
+           case AgentType.Full360:
+           canChase = CanChase();
+           break;
+           case AgentType.Block360:
+           canChase = CanChase2();
+           break;
+           case AgentType.Range:
+           canChase = CanChase3();
+           break;
+       }
        switch(state){
             case AgentState.Idle:
             if(canChase){
