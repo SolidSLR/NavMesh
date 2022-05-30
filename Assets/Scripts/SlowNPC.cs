@@ -42,6 +42,9 @@ public class SlowNPC : MonoBehaviour
            case AgentType.Range:
            canChase = CanChase3();
            break;
+           case AgentType.None:
+           canChase = false;
+           break;
        }
        switch(state){
             case AgentState.Idle:
