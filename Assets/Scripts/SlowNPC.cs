@@ -142,6 +142,10 @@ public class SlowNPC : MonoBehaviour
         Debug.Log("Cambio a Range");
         type = AgentType.Range;
     }
+    public void ChangeNone(){
+        Debug.Log("Cambio a None");
+        type = AgentType.None;
+    }
 
     public enum AgentState{
         Idle,
